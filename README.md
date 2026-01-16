@@ -1,2 +1,4 @@
 # Links:
-- [Style](https://samuelk36br.github.io/meusCDNs/style.js)
+- [Style](https://samuelk36br.github.io/meusCDNs/style.js);
+
+- [PadrãoCSS](https://samuelk36br.github.io/meusCDNs/padraoCSS.css);
