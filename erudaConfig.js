@@ -18,9 +18,17 @@ html.onkeydown = (e) => {
 // Explicação dos parâmetros:
 function erudaHelp() {
   const ERUDA_HELP = {
-    init: "oioioioioi",
+    init: "Inicia o eruda console.",
+    destroy: "Destroi o eruda console.",
     _isInit: "Retorna true se eruda estiver iniciado, caso contrário, retorna false.",
-    hide: "tchautchautchautchautchau"
+    show: "Mostrar o eruda console.",
+    hide: "Oculta o eruda console.",
+    version: "Mostra a versão."
   }
-  console.log(ERUDA_HELP);
+  
+  console.group("Eruda Help:");
+  Object.keys(ERUDA_HELP).forEach((e) => {
+    console.log(`%c${e}:`, "font-weight: bold; color: gold", ERUDA_HELP[e]);
+  })
+  console.groupEnd();
 }
