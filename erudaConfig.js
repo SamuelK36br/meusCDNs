@@ -1,5 +1,7 @@
-// Iniciar Console Eruda:
-eruda.init();
+// Iniciar eruda em site não publicado:
+if (!(window.location.origin === "https://samuelk36br.github.io")) {
+  eruda.init();
+}
 
 // Apertar ] para esconder/mostrar console:
 const html = document.querySelector("html");
@@ -11,11 +13,6 @@ html.onkeydown = (e) => {
   } else if (!html.className && e.key === "]") {
     eruda.hide();
   }
-}
-
-// Destruir eruda quando site for publicado:
-if (window.location.origin === "https://samuelk36br.github.io") {
-  eruda.destroy();
 }
 
 // Explicação dos parâmetros:
