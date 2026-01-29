@@ -6,10 +6,11 @@ if (!(window.location.origin === "https://samuelk36br.github.io")) {
 // Apertar ] para esconder/mostrar console:
 window.onkeydown = (e) => {
   if (e.key === "]") {
-    if (eruda._isInit) {
-      eruda.destroy();
+    document.body.classList.toggle("erudaAtivo");
+    
+    if (document.body.classList.contains("erudaAtivo")) {
+      eruda.hide();
     } else {
-      eruda.init();
       eruda.show();
     }
   }
