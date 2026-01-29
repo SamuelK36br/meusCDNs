@@ -13,16 +13,16 @@ html.onkeydown = (e) => {
   }
 }
 
-/*
+// Destruir eruda quando site for publicado:
 if (window.location.origin === "https://samuelk36br.github.io") {
   eruda.destroy();
 }
-*/
 
 // Explicação dos parâmetros:
 function erudaHelp() {
   const ERUDA_HELP = {
     init: "oioioioioi",
+    _isInit: "Retorna true se eruda estiver iniciado, caso contrário, retorna false.",
     hide: "tchautchautchautchautchau"
   }
   console.log(ERUDA_HELP);
