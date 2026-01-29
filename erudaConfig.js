@@ -4,14 +4,14 @@ if (!(window.location.origin === "https://samuelk36br.github.io")) {
 }
 
 // Apertar ] para esconder/mostrar console:
-const html = document.querySelector("html");
-html.onkeydown = (e) => {
-  html.classList.toggle("erudaAtivo");
-  
-  if (html.className && e.key === "]") {
-    eruda.show();
-  } else if (!html.className && e.key === "]") {
-    eruda.hide();
+window.onkeydown = (e) => {
+  if (e.key === "]") {
+    if (eruda._isInit) {
+      eruda.destroy();
+    } else {
+      eruda.init();
+      eruda.show();
+    }
   }
 }
 
