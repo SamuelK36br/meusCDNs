@@ -1,18 +1,36 @@
 // Iniciar eruda em site não publicado:
-if (!(window.location.origin === "https://samuelk36br.github.io")) {
+if (!(location.origin === "https://samuelk36br.github.io")) {
   eruda.init();
 }
 
-// Apertar ] para esconder/mostrar console:
 window.onkeydown = (e) => {
-  if (e.key === "]") {
-    if (document.body.classList.contains("erudaAtivo")) {
-      eruda.hide();
-    } else {
-      eruda.show();
+  if (eruda._isInit) {
+    
+    // "] + ctrl": ocultar/mostrar console:
+    if (e.key === "]" && e.ctrlKey) {
+      if (document.body.classList.contains("erudaAtivo")) { eruda.hide() }
+      else { eruda.show() }
+      
+      document.body.classList.toggle("erudaAtivo");
     }
     
-    document.body.classList.toggle("erudaAtivo");
+    // "] + alt": ir pro navegador:
+    if (e.key === "]" && e.altKey) {
+      if (navigator.platform === "Linux aarch64") {
+        window.open(location.href);
+      } else {
+        window.close();
+      }
+    }
+    
+    // "ctrl + r": reload página spck:
+    if (e.key === "r" && e.ctrlKey) {
+      if (navigator.platform === "Linux aarch64") {
+        location.reload();
+        alert("Reloaded!");
+      }
+    }
+    
   }
 }
 
@@ -27,9 +45,17 @@ function erudaHelp() {
     version: "Mostra a versão."
   }
   
-  console.group("Eruda Help:");
+  console.group("%cEruda Help:", "color: aqua; font-weight: bold");
   Object.keys(ERUDA_HELP).forEach((e) => {
-    console.log(`%c${e}:`, "font-weight: bold; color: gold", ERUDA_HELP[e]);
-  })
+    switch (e) {
+      case '_isInit':
+      case 'version':
+        console.log(`%c.${e}:`, "font-weight: bold; color: gold", ERUDA_HELP[e])
+        break;
+      
+      default:
+        console.log(`%c.${e}():`, "font-weight: bold; color: gold", ERUDA_HELP[e])
+    }
+  });
   console.groupEnd();
 }
