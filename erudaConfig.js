@@ -1,12 +1,12 @@
 // Iniciar eruda em site não publicado:
-if (!(location.origin === "https://samuelk36br.github.io")) {
+if (location.hostname === "localhost") {
   eruda.init();
 }
 
 window.onkeydown = (e) => {
   if (eruda._isInit) {
     
-    // "] + ctrl": ocultar/mostrar console:
+    // "ctrl + ]": ocultar/mostrar console:
     if (e.key === "]" && e.ctrlKey) {
       if (document.body.classList.contains("erudaAtivo")) { eruda.hide() }
       else { eruda.show() }
@@ -14,7 +14,7 @@ window.onkeydown = (e) => {
       document.body.classList.toggle("erudaAtivo");
     }
     
-    // "] + alt": ir pro navegador:
+    // "alt + ]": ir pro navegador:
     if (e.key === "]" && e.altKey) {
       if (navigator.platform === "Linux aarch64") {
         window.open(location.href);
