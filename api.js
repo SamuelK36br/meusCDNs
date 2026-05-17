@@ -1,4 +1,4 @@
-export default function api(url) {
+function api(url) {
 	try {
 		console.time("fetch");
 		const res = await fetch(url);
@@ -11,3 +11,5 @@ export default function api(url) {
 		console.log(data);
 	} catch (e) { throw new Error(e) }
 }
+
+export default api;
