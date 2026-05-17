@@ -1,4 +1,4 @@
-function api(url) {
+async function api(url) {
 	try {
 		console.time("fetch");
 		const res = await fetch(url);
