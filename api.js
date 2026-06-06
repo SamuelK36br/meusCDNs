@@ -1,14 +1,12 @@
-async function api(url) {
+async function api(url, metodo) {
 	try {
-		console.time("fetch");
 		const res = await fetch(url);
 		
 		if (!res.ok) throw new Error(`${res.status}: ${res.statusText}`);
 		
-		const data = await res.json();
-		console.timeEnd("fetch");
+		const data = await res[metodo]();
 		
-		console.log(data);
+		return data;
 	} catch (e) { throw new Error(e) }
 }
 
