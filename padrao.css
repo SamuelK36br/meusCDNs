@@ -12,12 +12,4 @@ html {
 
 body {
   font-family: Arial, sans-serif;
-}
-
-/* MODO ESCURO: */
-@media (prefers-color-scheme: dark) {
-  body {
-    background-color: #000;
-    color: #ffffff;
-  }
-}
+}   
